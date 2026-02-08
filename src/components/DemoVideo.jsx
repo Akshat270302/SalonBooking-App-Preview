@@ -4,7 +4,7 @@ function DemoVideo() {
   // REPLACE THIS with your actual video URL:
   // For YouTube: https://www.youtube.com/embed/YOUR_VIDEO_ID
   // For Google Drive: https://drive.google.com/file/d/YOUR_FILE_ID/preview
-  const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ'; // Placeholder URL
+  const videoUrl = 'https://www.youtube.com/embed/_iGi2TdYsyg';
 
   return (
     <section className="demo-video">

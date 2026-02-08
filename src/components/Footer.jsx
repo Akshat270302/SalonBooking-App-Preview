@@ -8,8 +8,8 @@ function Footer() {
           <div className="footer-section">
             <h3 className="footer-title">SalonSync</h3>
             <p className="footer-description">
-              A portfolio project demonstrating modern Android development 
-              with Kotlin and Firebase integration.
+              A portfolio project demonstrating modern app development 
+              with Firebase integration.
             </p>
           </div>
 
@@ -26,8 +26,6 @@ function Footer() {
           <div className="footer-section">
             <h4 className="footer-heading">Technologies</h4>
             <ul className="footer-links">
-              <li>Kotlin</li>
-              <li>Jetpack Compose</li>
               <li>Firebase</li>
               <li>Material Design 3</li>
             </ul>

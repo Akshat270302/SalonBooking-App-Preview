@@ -25,7 +25,7 @@ function Features() {
     {
       icon: '🎨',
       title: 'Material Design 3 UI',
-      description: 'Native Android components built with Jetpack Compose following Material Design principles'
+      description: 'Modern UI components following Material Design principles for a beautiful user experience'
     },
     {
       icon: '🏗️',
