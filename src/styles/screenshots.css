@@ -1,0 +1,259 @@
+.screenshots {
+  padding: 100px 20px;
+  background-color: white;
+}
+
+.screenshots-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #111827;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  text-align: center;
+  color: #6b7280;
+  margin: 0 0 64px 0;
+  font-weight: 400;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.screenshot-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.screenshot-card:hover {
+  transform: translateY(-4px);
+}
+
+.screenshot-image-wrapper {
+  width: 100%;
+  /* max-height prevents excessively tall images from dominating the layout */
+  max-height: 600px;
+  border-radius: 12px;
+  /* Changed from 'hidden' to 'visible' - no clipping of content */
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  /* Subtle gradient background visible behind transparent screenshot edges */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: box-shadow 0.3s ease;
+  /* Flexbox centers the image within the wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screenshot-card:hover .screenshot-image-wrapper {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.screenshot-image {
+  /* Image scales to fit within wrapper while maintaining aspect ratio */
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  /* CRITICAL: 'contain' shows entire image without cropping (not 'cover') */
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+.screenshot-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.screenshot-caption {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 500px;
+  /* Allow scrolling if image is extremely tall */
+  max-height: 90vh;
+  cursor: default;
+  animation: slideUp 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Wrapper ensures proper centering and prevents overflow issues */
+.modal-image-wrapper {
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.modal-image {
+  /* Image constrained by viewport height to prevent vertical cropping */
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  /* CRITICAL: 'contain' ensures full image is visible without cropping */
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .screenshots {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 48px;
+  }
+
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .screenshot-image-wrapper {
+    /* Center portrait screenshots on mobile, prevent overflow */
+    max-width: 400px;
+    max-height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .modal-content {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+  
+  .modal-image-wrapper {
+    max-height: 85vh;
+  }
+  
+  .modal-image {
+    max-height: 85vh;
+  }
+
+  .modal-close {
+    top: -50px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .screenshots {
+    padding: 60px 16px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .screenshot-title {
+    font-size: 1.125rem;
+  }
+
+  .screenshot-caption {
+    font-size: 0.875rem;
+  }
+}
